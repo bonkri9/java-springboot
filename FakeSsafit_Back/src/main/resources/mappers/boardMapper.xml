@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafit.model.dao.BoardDao">
+
+	<select id="selectAll" parameterType="Board" resultType="Board">
+		SELECT * 
+		FROM boards WHERE videoId = #{videoId}
+	</select>
+
+	<select id="selectOne" resultType="Board" parameterType="Board">
+		SELECT *
+		FROM boards
+		WHERE userId = #{userId} 
+	</select>
+
+	<insert id="insertBoard" parameterType="Board" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO boards (userId, videoId, boardTitle, writer, content, rating, boardDate, boardViewCnt)
+		VALUES (#{userId}, #{videoId}, #{boardTitle}, #{writer}, #{content}, #{rating}, now(), 0)
+	</insert>
+	
+	<delete id="deleteBoard" parameterType="Board">
+		DELETE FROM boards
+		WHERE userId = #{userId} AND videoId = #{videoId} 
+	</delete>
+	
+	<update id="updateViewCnt" parameterType="int">
+		UPDATE boards
+		SET boardViewCnt = boardViewCnt+1
+		WHERE userId = #{userId}
+	</update>
+	
+	<update id="updateBoard" parameterType="Board">
+		UPDATE boards
+		SET boardTitle = #{boardTitle}, content = #{content}, boardDate = now()
+		WHERE userId = #{userId} AND videoId = #{videoId}
+	</update>
+
+
+</mapper>
