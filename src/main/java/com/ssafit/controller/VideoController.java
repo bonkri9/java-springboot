@@ -29,7 +29,7 @@ public class VideoController {
 	}
 
 	@GetMapping("/count")
-	@ApiOperation(value = "조회수 내림차순 정렬")
+	@ApiOperation(value = "realreal 되는거임 real임")
 	public ResponseEntity<?> sortCount() {
 		List<Video> result = videoService.sortCount();
 
