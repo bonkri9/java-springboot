@@ -8,7 +8,7 @@ public interface BoardDao {
 	
 	List<Board> selectAll(String videoId);
 	
-	Board selectOne(String userId);
+	List<Board> selectById(String userId);
 	
 	void insertBoard(Board board);
 	

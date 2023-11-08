@@ -9,7 +9,7 @@
 		FROM boards WHERE videoId = #{videoId}
 	</select>
 
-	<select id="selectOne" resultType="Board" parameterType="Board">
+	<select id="selectById" resultType="Board" parameterType="Board">
 		SELECT *
 		FROM boards
 		WHERE userId = #{userId} 

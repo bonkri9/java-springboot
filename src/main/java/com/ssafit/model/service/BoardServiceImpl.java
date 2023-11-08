@@ -25,9 +25,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public Board getBoard(String userId) {
+	public List<Board> getBoardById(String userId) {
 		// TODO Auto-generated method stub
-		return dao.selectOne(userId);
+		return dao.selectById(userId);
 	}
 
 	@Override

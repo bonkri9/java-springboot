@@ -42,9 +42,12 @@ public class BoardController extends HttpServlet {
 	}
 
 	@GetMapping("/board/{userId}")
-	public ResponseEntity<Board> detail(@PathVariable String userId) {
-		Board board = boardService.getBoard(userId);
-		return new ResponseEntity<Board>(board, HttpStatus.OK);
+	public ResponseEntity<?> detailList(@PathVariable String userId) {
+		List<Board> detailList = boardService.getBoardById(userId);
+		if (detailList == null || detailList.size() == 0) {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Board>>(detailList, HttpStatus.OK);
 	}
 
 	@PostMapping("/board")

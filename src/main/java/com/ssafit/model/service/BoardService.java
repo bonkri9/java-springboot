@@ -7,7 +7,7 @@ import com.ssafit.model.dto.Board;
 public interface BoardService {
 	List<Board> getList(String videoId);
 	
-	Board getBoard(String userId);
+	List<Board> getBoardById(String userId);
 	
 	void writeBoard(Board board);
 	
