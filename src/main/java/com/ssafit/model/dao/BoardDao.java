@@ -10,6 +10,8 @@ public interface BoardDao {
 	
 	List<Board> selectById(String userId);
 	
+	Board selectOne(String videoId, String userId);
+	
 	void insertBoard(Board board);
 	
 	void updateBoard(Board board);

@@ -45,6 +45,21 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		dao.deleteBoard(userId, videoId);
 	}
+
+	@Override
+	public Board getOneBoard(String videoId,String userId) {
+		// TODO Auto-generated method stub
+		return dao.selectOne(videoId, userId);
+	}
+
+	
+
+	@Override
+	public void increaseViewCnt(String userId) {
+		// TODO Auto-generated method stub
+		dao.updateViewCnt(userId);
+		
+	}
 	
 	
 

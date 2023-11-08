@@ -9,10 +9,14 @@ public interface BoardService {
 	
 	List<Board> getBoardById(String userId);
 	
+	Board getOneBoard(String videoId, String userId);
+	
 	void writeBoard(Board board);
 	
 	void modifyBoard(Board board);
 	
 	void removeBoard(String userId, String videoId);
+	
+	void increaseViewCnt(String userId);
 	
 }

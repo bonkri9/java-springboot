@@ -40,14 +40,20 @@ public class BoardController extends HttpServlet {
 		}
 		return new ResponseEntity<List<Board>>(list, HttpStatus.OK);
 	}
-
+	
 	@GetMapping("/board/{userId}")
-	public ResponseEntity<?> detailList(@PathVariable String userId) {
+	public ResponseEntity<?> detailList(@RequestParam String userId) {
 		List<Board> detailList = boardService.getBoardById(userId);
 		if (detailList == null || detailList.size() == 0) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Board>>(detailList, HttpStatus.OK);
+	}
+
+	@GetMapping("/board/{videoId}")
+	public ResponseEntity<Board> detail(@RequestParam String videoId, String userId) {
+		Board board = boardService.getOneBoard(videoId, userId);
+		return new ResponseEntity<Board>(board, HttpStatus.OK);
 	}
 
 	@PostMapping("/board")

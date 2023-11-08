@@ -8,6 +8,11 @@
 		SELECT * 
 		FROM boards WHERE videoId = #{videoId}
 	</select>
+	
+	<select id="selectOne" parameterType="Board" resultType="Board">
+		SELECT * 
+		FROM boards WHERE videoId = #{videoId} AND userId = #{userId}
+	</select> 
 
 	<select id="selectById" resultType="Board" parameterType="Board">
 		SELECT *
