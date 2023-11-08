@@ -9,5 +9,4 @@ public interface VideoDao {
 	
 	List<Video> sortPart(String part);
 	
-	void updateVideoViewCnt(String videoId);
 }

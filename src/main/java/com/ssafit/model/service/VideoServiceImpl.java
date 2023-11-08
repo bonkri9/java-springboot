@@ -12,11 +12,11 @@ import com.ssafit.model.dto.Video;
 public class VideoServiceImpl implements VideoService {
 	private static VideoService service = new VideoServiceImpl();
 
-	private VideoDao videoDao;
+	private VideoDao dao;
 
 	@Autowired
 	public VideoServiceImpl(VideoDao dao) {
-		this.videoDao = videoDao;
+		this.dao = dao;
 	}
 
 	public VideoServiceImpl() {
@@ -30,12 +30,12 @@ public class VideoServiceImpl implements VideoService {
 	@Override
 	public List<Video> sortCount() {
 		// TODO Auto-generated method stub
-		return videoDao.sortCount();
+		return dao.sortCount();
 	}
 
 	@Override
 	public List<Video> sortPart(String part) {
-		return videoDao.sortPart(part);
+		return dao.sortPart(part);
 	}
 	
 	
