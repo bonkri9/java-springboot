@@ -18,6 +18,12 @@ public interface BoardDao {
 	
 	void deleteBoard(String userId, String videoId);
 	
-	void updateViewCnt(String userId);
+
+	void updateViewCnt(String videoId, String userId);
+	
+	
+	void updateVideoViewCnt(String videoId);
+	
+	
 
 }

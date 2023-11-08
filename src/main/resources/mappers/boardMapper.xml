@@ -30,10 +30,10 @@
 		WHERE userId = #{userId} AND videoId = #{videoId} 
 	</delete>
 	
-	<update id="updateViewCnt" parameterType="int">
+	<update id="updateViewCnt" parameterType="String">
 		UPDATE boards
 		SET boardViewCnt = boardViewCnt+1
-		WHERE userId = #{userId}
+		WHERE videoId = #{videoId} AND userId = #{userId}
 	</update>
 	
 	<update id="updateBoard" parameterType="Board">
@@ -41,6 +41,12 @@
 		SET boardTitle = #{boardTitle}, content = #{content}, boardDate = now()
 		WHERE userId = #{userId} AND videoId = #{videoId}
 	</update>
-
+	
+	<update id="updateVideoViewCnt" parameterType="String">
+		UPDATE videos
+		SET videoViewCnt = videoViewCnt+1
+		WHERE videoId = #{videoId}
+	</update>
+	
 
 </mapper>

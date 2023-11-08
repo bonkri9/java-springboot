@@ -8,4 +8,5 @@ public interface VideoService {
 	List<Video> sortCount();
 	
 	List<Video> sortPart(String part);
+	
 }

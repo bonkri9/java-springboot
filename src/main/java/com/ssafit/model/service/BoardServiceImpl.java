@@ -14,6 +14,7 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardDao dao;
 	
+	
 	public BoardServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -21,6 +22,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<Board> getList(String videoId) {
 		// TODO Auto-generated method stub
+		dao.updateVideoViewCnt(videoId);
 		return dao.selectAll(videoId);
 	}
 
@@ -48,18 +50,13 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public Board getOneBoard(String videoId,String userId) {
-		// TODO Auto-generated method stub
+		dao.updateViewCnt(videoId, userId);
 		return dao.selectOne(videoId, userId);
 	}
 
 	
 
-	@Override
-	public void increaseViewCnt(String userId) {
-		// TODO Auto-generated method stub
-		dao.updateViewCnt(userId);
-		
-	}
+
 	
 	
 

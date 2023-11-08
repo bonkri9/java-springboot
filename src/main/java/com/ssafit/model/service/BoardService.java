@@ -16,7 +16,5 @@ public interface BoardService {
 	void modifyBoard(Board board);
 	
 	void removeBoard(String userId, String videoId);
-	
-	void increaseViewCnt(String userId);
-	
+
 }
